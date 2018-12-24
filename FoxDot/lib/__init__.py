@@ -20,7 +20,7 @@ from .Midi import *
 from .Settings import *
 from .SCLang._SynthDefs import *
 from .ServerManager import *
-from .SCLang import SynthDefs, Env, SynthDef, CompiledSynthDef
+from .SCLang import SynthDefs, Env, SynthDef, CompiledSynthDef, FileSynthDef, SynthDefBaseClass
 from .Root import Root
 from .Scale import Scale, Tuning
 from .Workspace import get_keywords
@@ -30,7 +30,7 @@ from .Workspace import get_keywords
 from random import choice as choose
 
 # Define any custom functions
-    
+
 @PatternMethod
 def __getitem__(self, key):
     """ Overrides the Pattern.__getitem__ to allow indexing
@@ -48,7 +48,7 @@ def __getitem__(self, key):
         return self.getitem(key)
 
 def player_method(f):
-    """ Decorator for assigning functions as Player methods. 
+    """ Decorator for assigning functions as Player methods.
 
     >>> @player_method
     ... def test(self):
@@ -97,7 +97,7 @@ def futureBar(n=0):
     return _futureBarDecorator(n, Clock.bar_length())
 
 def update_foxdot_clock(clock):
-    """ Tells the TimeVar, Player, and MidiIn classes to use 
+    """ Tells the TimeVar, Player, and MidiIn classes to use
         a new instance of TempoClock. """
 
     assert isinstance(clock, TempoClock)
